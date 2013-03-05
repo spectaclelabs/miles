@@ -24,7 +24,6 @@ public:
         degree -= extraOctaves * degrees.size();
         octave += extraOctaves;
         frequency *= std::pow(tuning.getOctaveRatio(), octave);
-        std::cout << degree << std::endl;
         frequency *= tuning.getRatio(degrees[degree]);
         return frequency;
     }
