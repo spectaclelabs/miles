@@ -6,5 +6,6 @@
 
 #include "miles/tuning.h"
 #include "miles/equal_temperament_tuning.h"
+#include "miles/just_tuning.h"
 
 #endif
