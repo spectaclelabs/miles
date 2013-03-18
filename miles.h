@@ -3,6 +3,7 @@
 
 #include "miles/scale.h"
 #include "miles/major_scale.h"
+#include "miles/minor_scale.h"
 
 #include "miles/tuning.h"
 #include "miles/equal_temperament_tuning.h"
