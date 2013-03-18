@@ -5,6 +5,8 @@
 #include <initializer_list>
 #include <vector>
 
+#include "constants.h"
+
 namespace miles {
 
 class Tuning {
@@ -19,6 +21,15 @@ public:
         for (uint32_t i=0; i<this->semitones.size(); i++) {
             ratios[i] = std::pow(2.0f, this->semitones[i] * invLength);  
         }
+    }
+
+    static Tuning fromRatios(std::vector<float> ratios,
+                             float octaveRatio=2.0f) {
+        std::vector<float> semitones(ratios.size());
+        for (uint32_t i=0; i<ratios.size(); i++) {
+            semitones[i] = ratios.size() * std::log(ratios[i]) * miles::INVLN2;
+        }
+        return Tuning(std::move(semitones), octaveRatio);
     }
  
 
