@@ -11,9 +11,6 @@ namespace miles {
 
 class Tuning {
 public:
-    Tuning(std::initializer_list<float> semitones, float octaveRatio=2.0f) :
-        Tuning(semitones, octaveRatio) {}
-
     Tuning(std::vector<float> semitones, float octaveRatio=2.0f) :
         semitones(std::move(semitones)), ratios(this->semitones.size()),
         octaveRatio(octaveRatio) {
