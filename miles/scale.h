@@ -2,7 +2,6 @@
 #define MILES_SCALE_H
 
 #include <cmath>
-#include <initializer_list>
 #include <vector>
 
 #include "tuning.h"
@@ -12,7 +11,7 @@ namespace miles {
 
 class Scale {
 public:
-    Scale(std::initializer_list<uint32_t> degrees,
+    Scale(std::vector<uint32_t> degrees,
           Tuning tuning=EqualTemperamentTuning(12)) :
         degrees(degrees), tuning(std::move(tuning)) {}
 
