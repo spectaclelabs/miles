@@ -103,7 +103,7 @@ int main() {
 
 ### Creating custom tunings
 
-Similarly, we can create custom tunings from a list of semitone values or note ratios.
+Similarly, we can create custom tunings from a list of semitone values or note ratios.  The following example prints the C major scale using a standard 12-tone equal temperament tuning, and a stretched version of the same tuning.
 
 ```cpp
 #include <iostream>
@@ -119,7 +119,8 @@ Tuning CustomTuning() {
                    10.f, 11.f}, 2.05);
 }
 
-// Create an instance of our custom scale
+// Create two scale, one using the standard tuning and one using our custom
+// tuning
 Scale scaleA = MajorScale();
 Scale scaleB = MajorScale(CustomTuning());
 
@@ -137,6 +138,29 @@ int main() {
     }
 }
 ```
+
+## API Documentation
+
+### Scale
+
+```cpp
+Scale(std::vector<float> degrees, Tuning tuning=EqualTemperamentTuning(12));
+```
+
+Construct a scale from a vector of degrees, and a tuning.
+
+```cpp
+float Scale::getFrequency(uint32_t degree, float rootFrequency,
+                          uint32_t octave);
+```
+
+Get the frequency of a note in the scale at a given degree and octave, with a root frequency for the scale.
+
+```cpp
+Scale XScale(Tuning tuning=AnAppropriateTuning());
+```
+
+Return an instance of a built-in scale named X.  Currently available scales are: MajorScale, MinorScale.
 
 
 
