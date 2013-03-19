@@ -162,5 +162,23 @@ Scale XScale(Tuning tuning=AnAppropriateTuning());
 
 Return an instance of a built-in scale named X.  Currently available scales are: MajorScale, MinorScale.
 
+### Tuning
 
+```cpp
+Tuning(std::vector<float> semitones, float octaveRatio=2.0f);
+```
+
+Construct a tuning from a list of semitones and an octave ratio (allowing for stretched tunings).
+
+```cpp
+static Tuning Tuning::fromRatios(std::vector<float> ratios,
+                                 float octaveRatio=2.0);
+```
+Construct a tuning from a list of note ratios and an octave ratio.
+
+```cpp
+Tuning XTuning();
+```
+
+Return an instance of a built-in tuning named X.  Currently available tunings are: EqualTemperamentTuning, JustTuning.
 
